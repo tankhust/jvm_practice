@@ -23,14 +23,21 @@ public class MyTest16 extends ClassLoader{
         this.classLoaderName = classLoaderName;
     }
 
+    /*
+        为了迎合 -Djava.system.class.loader指定为MyTest需要一个指定ClassLoader的构造函数 的要求
+     */
+    public MyTest16(ClassLoader parent) {
+        super(parent);
+    }
+
     public void setPath(String path) {
         this.path = path;
     }
 
-    @Override
-    public String toString() {
-        return "[" + this.classLoaderName +"]";
-    }
+//    @Override
+//    public String toString() {
+//        return "[" + this.classLoaderName +"]";
+//    }
 
     @Override
     protected Class<?> findClass(String className) throws ClassNotFoundException {
