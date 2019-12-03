@@ -1,15 +1,21 @@
-plugins {
-    id 'java'
-}
-
-group 'com.tank'
+group ' com.tank'
 version '1.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'idea'
+
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+
+//    mavenCentral()
 }
 
 dependencies {
+    implementation(
+            "mysql:mysql-connector-java:5.1.34"
+    )
 }
